@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+ <style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table style="width:100%">
+  <tr>
+    <th>Departure City</th>
+    <th>Arrival City</th>
+    <th>Departure</th>
+      <th>Arrival</th>
+    <th>Duration</th>
+    <th>Changes</th>
+    <th>Fees</th>
+  </tr>
+{% for trip in plausabletrips %}
+    <tr>
+    <th>{{trip.city_Of_Departure}}</th>
+    <th>{{trip.city_Of_Arrival}}</th>
+    <th>{{trip.time_Of_Departure}}</th>
+      <th>{{trip.time_Of_Arrival}}</th>
+    <th>{{trip.duration_Of_Trip}}</th>
+
+    <th>
+        {% for change in trip.change_set.all %}
+    {{  change  }},
+
+         {% endfor %}
+    </th>
+
+
+    <th>{{trip.fees}}</th>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+</head>
+</head>
+<body>
+
+</body>
+</html>
